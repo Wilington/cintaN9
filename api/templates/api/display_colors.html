@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(function(){
+			$.get('/api/colors', {}, function(response){
+				console.log(response);
+				response=response[0];
+				template = $("#color-template .color-item").clone();
+				template.find(".color-name").text(response.name);
+				$("#color_container").append(template);
+			})
+		})
+	</script>
+
+	<div id="color_container">
+		
+	</div>
+	<template id="color-template">
+		<div class="color-item">
+			<div>
+				Nombre: <span class="color-name"></span>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

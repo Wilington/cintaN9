@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+
+{%load static %}
+
+{% block content %}
+
+<div class="container">
+	<form action="." method="post">
+		{%csrf_token%}
+		{{form.as_ul}}
+		<input id="boton" type="submit" value="aceptar"></input>
+	</form>
+</div>
+{% endblock content %}
